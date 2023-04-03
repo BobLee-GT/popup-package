@@ -5,7 +5,7 @@ extension ShowWithAction on PopupStatusGoTrustCustom{
     required BuildContext context,
     required String code,
     String message = '',
-    String language = 'VI',
+    String language = 'Vi',
     String titleBtnYes = 'Có',
     String titleBtnNo = 'Không',
     Function()? onTapYes,

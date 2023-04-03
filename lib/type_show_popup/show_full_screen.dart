@@ -5,7 +5,7 @@ extension ShowFullScreen on PopupStatusGoTrustCustom{
     required BuildContext context,
     required String code,
     String message = '',
-    String language = 'VI',
+    String language = 'Vi',
     String titleBtnCheck = 'Kiểm tra lại',
     String subTitle = '',
     Function()? onTapCheck,
@@ -30,7 +30,7 @@ extension ShowFullScreen on PopupStatusGoTrustCustom{
               child: SizedBox.expand(
                 child: ElevatedButton(
                   onPressed: () => Navigator.pop(context),
-                  child: Text('Dismiss'),
+                  child: const Text('Dismiss'),
                 ),
               ),
             ),

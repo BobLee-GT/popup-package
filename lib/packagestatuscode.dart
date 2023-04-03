@@ -9,12 +9,12 @@ part 'type_show_popup/show_with_action.dart';
 part 'type_show_popup/show_full_screen.dart';
 
 /// This package show popup base on status code
-class PopupStatusGoTrustCustom {
+class GoTrustStatusCodePopup {
   static Future<void> show(
       {required BuildContext context,
       required String code,
       String message = '',
-      String language = 'VI'}) async {
+      String language = 'Vi'}) async {
     await ShowNormal.show(
         context: context, code: code, language: language, message: message);
   }
@@ -23,7 +23,7 @@ class PopupStatusGoTrustCustom {
     required BuildContext context,
     required String code,
     String message = '',
-    String language = 'VI',
+    String language = 'Vi',
     String titleBtnYes = 'Có',
     String titleBtnNo = 'Không',
     Function()? onTapYes,
@@ -44,7 +44,7 @@ class PopupStatusGoTrustCustom {
     required BuildContext context,
     required String code,
     String message = '',
-    String language = 'VI',
+    String language = 'Vi',
     String titleBtnCheck = 'Kiểm tra lại',
     String subTitle = '',
     Function()? onTapCheck,

@@ -6,7 +6,7 @@ extension ShowNormal on PopupStatusGoTrustCustom{
       {required BuildContext context,
         required String code,
         String message = '',
-        String language = 'VI'}) async {
+        String language = 'Vi'}) async {
 
 
   }
