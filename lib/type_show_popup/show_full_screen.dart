@@ -1,6 +1,6 @@
 part of '../packagestatuscode.dart';
 
-extension ShowFullScreen on PopupStatusGoTrustCustom{
+extension ShowFullScreen on GoTrustStatusCodePopup{
   static Future<void> show({
     required BuildContext context,
     required String code,

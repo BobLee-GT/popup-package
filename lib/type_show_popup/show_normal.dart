@@ -1,7 +1,7 @@
 
 part of '../packagestatuscode.dart';
 
-extension ShowNormal on PopupStatusGoTrustCustom{
+extension ShowNormal on GoTrustStatusCodePopup{
    static Future<void> show(
       {required BuildContext context,
         required String code,

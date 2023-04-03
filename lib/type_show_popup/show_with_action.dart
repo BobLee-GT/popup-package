@@ -1,6 +1,6 @@
 part of '../packagestatuscode.dart';
 
-extension ShowWithAction on PopupStatusGoTrustCustom{
+extension ShowWithAction on GoTrustStatusCodePopup{
   static Future<void> show({
     required BuildContext context,
     required String code,
