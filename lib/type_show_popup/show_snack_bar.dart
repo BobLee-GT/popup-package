@@ -19,6 +19,8 @@ extension ShowSnackBar on GoTrustStatusCodePopup {
       ),
       margin: EdgeInsets.only(
         bottom: spaceWithBottom ?? 0,
+        right: 20,
+        left: 20
       ),
     );
 
