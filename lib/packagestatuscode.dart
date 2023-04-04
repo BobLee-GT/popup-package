@@ -65,7 +65,6 @@ class GoTrustStatusCodePopup {
   }
 
   static Future<void> showSnackBar({
-    required BuildContext context,
     required String code,
     String title = '',
     String message = '',
@@ -76,7 +75,6 @@ class GoTrustStatusCodePopup {
     double? spaceWithBottom,
   }) async {
     await ShowSnackBar.show(
-        context: context,
         code: code,
         title: title,
         message: message,
