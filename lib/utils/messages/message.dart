@@ -1,4 +1,3 @@
-
 final Map<String, String> messageVNFromStatus = {
   '400': 'Có lỗi xảy ra. Xin thử lại',
   '401': 'Hãy đăng nhập để xem tính năng này bạn nhé',

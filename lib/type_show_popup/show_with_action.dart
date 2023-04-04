@@ -10,5 +10,7 @@ extension ShowWithAction on GoTrustStatusCodePopup{
     String titleBtnNo = 'Không',
     Function()? onTapYes,
     Function()? onTapNo,
-  }) async {}
+  }) async {
+
+  }
 }
