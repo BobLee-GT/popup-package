@@ -8,9 +8,13 @@ extension ShowSnackBar on GoTrustStatusCodePopup {
     String language = 'Vi',
     Color? backgroundColor,
     Color? colorText,
-    ///spaceWithBottom: if 0 snackbar will show at bottom
-    double? spaceWithBottom,
+    bool isShowTop = true,
   }) async {
-    Get.snackbar(title, message, backgroundColor: backgroundColor ?? Colors.black.withOpacity(0.6), colorText: Colors.white);
+    Get.snackbar(
+      title,
+      message,
+        snackPosition: isShowTop ? SnackPosition.TOP : SnackPosition.BOTTOM,
+        backgroundColor: backgroundColor ?? Colors.black.withOpacity(0.6),
+        colorText: colorText ?? Colors.white);
   }
 }

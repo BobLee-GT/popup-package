@@ -71,8 +71,7 @@ class GoTrustStatusCodePopup {
     String language = 'Vi',
     Color? colorText,
     Color? backgroundColor,
-    ///spaceWithBottom: if 0 snackbar will show at bottom
-    double? spaceWithBottom,
+    bool isShowTop = true,
   }) async {
     await ShowSnackBar.show(
         code: code,
@@ -80,7 +79,7 @@ class GoTrustStatusCodePopup {
         message: message,
         language: language,
         colorText: colorText,
-        backgroundColor: backgroundColor,
-        spaceWithBottom: spaceWithBottom);
+        isShowTop: isShowTop,
+        backgroundColor: backgroundColor);
   }
 }
