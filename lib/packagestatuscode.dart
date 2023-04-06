@@ -71,6 +71,11 @@ class GoTrustStatusCodePopup {
     String titleBtnCheck = 'Kiểm tra lại',
     String title = '',
     String subTitle = '',
+    TextStyle? textStyleTitle,
+    TextStyle? textStyleSubTitle,
+    String btnTitle = '',
+    Color? btnColor,
+    Widget? customText,
     Function()? onTapCheck,
   }) async {
     await ShowFullScreen.show(
@@ -78,8 +83,13 @@ class GoTrustStatusCodePopup {
         code: code,
         language: language,
         title: title,
-        onTapCheck: onTapCheck,
+        textStyleTitle: textStyleTitle,
         subTitle: subTitle,
+        textStyleSubTitle: textStyleSubTitle,
+        onTapCheck: onTapCheck,
+        btnColor: btnColor,
+        btnTitle: btnTitle,
+        customText: customText,
         titleBtnCheck: titleBtnCheck);
   }
 

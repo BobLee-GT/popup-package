@@ -5,12 +5,16 @@ extension ShowFullScreen on GoTrustStatusCodePopup {
     required BuildContext context,
     required String code,
     String title = '',
+    String subTitle = '',
+    TextStyle? textStyleTitle,
+    TextStyle? textStyleSubTitle,
     String language = 'Vi',
     String titleBtnCheck = 'Kiểm tra lại',
-    String subTitle = '',
+    String btnTitle = '',
+    Color? btnColor,
+    Widget? customText,
     Function()? onTapCheck,
   }) async {
-    /// Demo show full screen
     await showGeneralDialog(
       context: context,
       barrierColor: Colors.black12.withOpacity(0.6),
@@ -23,46 +27,62 @@ extension ShowFullScreen on GoTrustStatusCodePopup {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            SvgImage.asset(assetName: 'assets/popup/400.svg'),
-            Text(
-              title.isEmpty ? 'Thông báo' : '',
-              style: const TextStyle(
-                  fontSize: 22,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold),
-            ),
+            _topImage(code),
+            _title(title: title, textStyleTitle: textStyleTitle),
             const SizedBox(height: 10),
-            Text(
-              subTitle.isEmpty
-                  ? language == 'Vi'
-                      ? (messageVNFromStatus[code] ?? '')
-                      : (messageENFromStatus[code] ?? '')
-                  : subTitle,
-              style: TextStyle(
-                  fontSize: 18,
-                  color: Colors.white.withOpacity(0.8),
-                  fontWeight: FontWeight.w400),
-            ),
+            _subTitle(code: code, language: language, subTitle: subTitle, textStyleSubTitle: textStyleSubTitle),
             const SizedBox(height: 30),
-            GestureDetector(
-              onTap: () => Navigator.pop(context),
-              child: Container(
-                width: 160,
-                height: 40,
-                decoration: BoxDecoration(
-                  color: Colors.blueAccent,
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                child: const Center(
-                    child: Text(
-                  'Thử lại',
-                  style: TextStyle(fontSize: 18, color: Colors.white),
-                )),
-              ),
-            )
+            _btnAction(context, customText: customText, btnColor: btnColor, btnTitle: btnTitle),
           ],
         );
       },
+    );
+  }
+
+  static Widget _topImage(code) {
+    return SvgImage.asset(
+        assetName: svgImageFromStatus[code] ?? 'assets/popup/400.svg');
+  }
+
+  static Widget _title({title, textStyleTitle}) {
+    return Text(
+      title.isEmpty ? 'Thông báo' : title,
+      style: textStyleTitle ??
+          const TextStyle(
+              fontSize: 22, color: Colors.black, fontWeight: FontWeight.bold),
+    );
+  }
+
+  static Widget _subTitle({code, subTitle, language, textStyleSubTitle}) {
+    return Text(
+      subTitle.isEmpty
+          ? language == 'Vi'
+          ? (messageVNFromStatus[code] ?? '')
+          : (messageENFromStatus[code] ?? '')
+          : subTitle,
+      style: textStyleSubTitle ?? TextStyle(
+          fontSize: 18,
+          color: Colors.white.withOpacity(0.8),
+          fontWeight: FontWeight.w400),
+    );
+  }
+
+  static Widget _btnAction(context, {btnColor, customText, btnTitle}) {
+    return GestureDetector(
+      onTap: () => Navigator.pop(context),
+      child: Container(
+        width: 160,
+        height: 40,
+        decoration: BoxDecoration(
+          color: btnColor ?? Colors.blueAccent,
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child:  Center(
+            child: customText ?? Text(
+              btnTitle ?? 'Thử lại',
+              style: TextStyle(fontSize: 18, color: Colors.white),
+            )),
+      ),
     );
   }
 }
