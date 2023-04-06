@@ -34,7 +34,16 @@ extension ShowNormal on GoTrustStatusCodePopup {
                     SvgImage.asset(
                         assetName:
                             svgImageFromStatus[code] ?? 'assets/popup/400.svg'),
-                    const Spacer(),
+                    Expanded(child: Text(
+                      message.isEmpty  ? language == 'Vi'
+                          ? (messageVNFromStatus[code] ?? '')
+                          : (messageENFromStatus[code] ?? '')
+                          : message,
+                      style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.grey.withOpacity(0.6),
+                          fontWeight: FontWeight.w400),
+                    )),
                     GestureDetector(
                       onTap: () => Navigator.of(context).pop(),
                       child: Container(
