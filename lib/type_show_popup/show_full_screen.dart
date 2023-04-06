@@ -34,10 +34,10 @@ extension ShowFullScreen on GoTrustStatusCodePopup {
             const SizedBox(height: 20),
             Text(
               subTitle.isEmpty
-                  ? ''
-                  : language == 'Vi'
+                  ? language == 'Vi'
                       ? (messageVNFromStatus[code] ?? '')
-                      : (messageENFromStatus[code] ?? ''),
+                      : (messageENFromStatus[code] ?? '')
+                  : subTitle,
               style: TextStyle(
                   fontSize: 18,
                   color: Colors.white.withOpacity(0.6),
