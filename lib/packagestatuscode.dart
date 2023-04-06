@@ -43,25 +43,47 @@ class GoTrustStatusCodePopup {
         customText: customText);
   }
 
-  static Future<void> showWithAction({
-    required BuildContext context,
-    required String code,
-    String message = '',
-    String language = 'Vi',
-    String titleBtnYes = 'Có',
-    String titleBtnNo = 'Không',
-    Function()? onTapYes,
-    Function()? onTapNo,
-  }) async {
-    await ShowWithAction.show(
-        context: context,
-        code: code,
-        message: message,
-        language: language,
-        onTapNo: onTapNo,
-        onTapYes: onTapYes,
-        titleBtnNo: titleBtnNo,
-        titleBtnYes: titleBtnYes);
+  static Future<void> showWithAction(
+      {required bool isVertical,
+      required BuildContext context,
+      required String code,
+      double? width,
+      double? height,
+      Color? backgroundColor,
+      String notice = '',
+      TextStyle? textStyleNotice,
+      TextStyle? textStyleMessage,
+      String message = '',
+      String language = 'Vi',
+      String titleBtnYes = 'Có',
+      Color? colorBtnYes,
+      String titleBtnNo = 'Không',
+      Color? colorBtnNo,
+      Function()? onTapYes,
+      Function()? onTapNo,
+      Widget? customTextYes,
+      Widget? customTextNo}) async {
+    isVertical
+        ? await ShowWithAction.showButtonVertical(
+            context: context,
+            code: code,
+            message: message,
+            language: language,
+            onTapNo: onTapNo,
+            onTapYes: onTapYes,
+            titleBtnNo: titleBtnNo,
+            titleBtnYes: titleBtnYes,
+          )
+        : await ShowWithAction.showButtonHorizontal(
+            context: context,
+            code: code,
+            message: message,
+            language: language,
+            onTapNo: onTapNo,
+            onTapYes: onTapYes,
+            titleBtnNo: titleBtnNo,
+            titleBtnYes: titleBtnYes,
+          );
   }
 
   static Future<void> showFullScreen({
