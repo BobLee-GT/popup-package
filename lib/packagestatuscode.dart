@@ -1,6 +1,7 @@
 library packagestatuscode;
 
 import 'package:flutter/material.dart';
+import 'package:gotrust_popup/utils/messages/message.dart';
 import 'package:gotrust_popup/utils/svg/data_svg.dart';
 import 'package:gotrust_popup/utils/svg/read_svg.dart';
 import 'package:get/get.dart';
@@ -48,9 +49,9 @@ class GoTrustStatusCodePopup {
   static Future<void> showFullScreen({
     required BuildContext context,
     required String code,
-    String message = '',
     String language = 'Vi',
     String titleBtnCheck = 'Kiểm tra lại',
+    String title = '',
     String subTitle = '',
     Function()? onTapCheck,
   }) async {
@@ -58,7 +59,7 @@ class GoTrustStatusCodePopup {
         context: context,
         code: code,
         language: language,
-        message: message,
+        title: title,
         onTapCheck: onTapCheck,
         subTitle: subTitle,
         titleBtnCheck: titleBtnCheck);
