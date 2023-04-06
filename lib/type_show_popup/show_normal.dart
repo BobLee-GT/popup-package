@@ -41,7 +41,7 @@ extension ShowNormal on GoTrustStatusCodePopup {
                           : message,
                       style: TextStyle(
                           fontSize: 20,
-                          color: Colors.grey.withOpacity(0.6),
+                          color: Colors.grey.withOpacity(0.8),
                           fontWeight: FontWeight.w400),
                     )),
                     GestureDetector(
