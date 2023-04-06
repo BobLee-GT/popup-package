@@ -4,11 +4,14 @@ extension ShowNormal on GoTrustStatusCodePopup {
   static Future<void> show({
     required BuildContext context,
     required String code,
+    String btnTitle = '',
     String message = '',
     String language = 'Vi',
     double? width,
     double? height,
     Color? backgroundColor,
+    Color? btnColor,
+    Widget? customText,
   }) async {
     await showGeneralDialog(
         context: context,
@@ -20,7 +23,9 @@ extension ShowNormal on GoTrustStatusCodePopup {
               margin: const EdgeInsets.only(left: 30, right: 30),
               width: width ?? double.infinity,
               height: height ?? 400,
-              color: backgroundColor ?? Colors.white,
+              decoration: BoxDecoration(
+                  color: backgroundColor ?? Colors.white,
+                  borderRadius: BorderRadius.circular(16)),
               child: Padding(
                 padding: const EdgeInsets.all(10),
                 child: Column(
@@ -36,10 +41,23 @@ extension ShowNormal on GoTrustStatusCodePopup {
                         width: 260,
                         height: 45,
                         decoration: BoxDecoration(
-                          color: Colors.blue,
+                          color: btnColor ?? Colors.blue,
                           borderRadius: BorderRadius.circular(32),
                         ),
+                        child: Center(
+                          child: customText ??
+                              Text(
+                                btnTitle.isEmpty ? 'Tôi đã hiểu' : btnTitle,
+                                style: const TextStyle(
+                                    fontSize: 20,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w400),
+                              ),
+                        ),
                       ),
+                    ),
+                    const SizedBox(
+                      height: 20,
                     ),
                   ],
                 ),

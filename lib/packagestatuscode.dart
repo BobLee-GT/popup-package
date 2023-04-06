@@ -16,13 +16,29 @@ part 'type_show_popup/show_snack_bar.dart';
 
 /// This package show popup base on status code
 class GoTrustStatusCodePopup {
-  static Future<void> show(
-      {required BuildContext context,
-      required String code,
-      String message = '',
-      String language = 'Vi'}) async {
+  static Future<void> show({
+    required BuildContext context,
+    required String code,
+    String btnTitle = '',
+    String message = '',
+    String language = 'Vi',
+    double? width,
+    double? height,
+    Color? backgroundColor,
+    Color? btnColor,
+    Widget? customText,
+  }) async {
     await ShowNormal.show(
-        context: context, code: code, language: language, message: message);
+        context: context,
+        code: code,
+        language: language,
+        message: message,
+        backgroundColor: backgroundColor,
+        height: height,
+        width: width,
+        btnColor: btnColor,
+        btnTitle: btnTitle,
+        customText: customText);
   }
 
   static Future<void> showWithAction({
