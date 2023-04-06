@@ -1,7 +1,7 @@
 part of '../packagestatuscode.dart';
 
 extension ShowWithAction on GoTrustStatusCodePopup {
-  static Future<void> showButtonHorizontal(
+  static Future<void> showButtonVertical(
       {required BuildContext context,
       required String code,
       double? width,
@@ -48,6 +48,7 @@ extension ShowWithAction on GoTrustStatusCodePopup {
                             message: message,
                             language: language,
                             textStyleMessage: textStyleMessage)),
+                    const SizedBox(height: 20),
                     _btnAction(context,
                         btnTitle: titleBtnYes,
                         btnColor: colorBtnYes,
@@ -60,7 +61,7 @@ extension ShowWithAction on GoTrustStatusCodePopup {
                         onTap: onTapNo,
                         customText: customTextNo),
                     const SizedBox(
-                      height: 20,
+                      height: 10,
                     ),
                   ],
                 ),
@@ -70,7 +71,7 @@ extension ShowWithAction on GoTrustStatusCodePopup {
         });
   }
 
-  static Future<void> showButtonVertical(
+  static Future<void> showButtonHorizontal(
       {required BuildContext context,
       required String code,
       double? width,
