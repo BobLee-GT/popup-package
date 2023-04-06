@@ -1,26 +1,25 @@
 part of '../packagestatuscode.dart';
 
-extension ShowWithAction on GoTrustStatusCodePopup{
-  static Future<void> showButtonHorizontal({
-    required BuildContext context,
-    required String code,
-    double? width,
-    double? height,
-    Color? backgroundColor,
-    String notice = '',
-    TextStyle? textStyleNotice,
-    TextStyle? textStyleMessage,
-    String message = '',
-    String language = 'Vi',
-    String titleBtnYes = 'Có',
-    Color? colorBtnYes,
-    String titleBtnNo = 'Không',
-    Color? colorBtnNo,
-    Function()? onTapYes,
-    Function()? onTapNo,
-    Widget? customTextYes,
-    Widget? customTextNo
-  }) async {
+extension ShowWithAction on GoTrustStatusCodePopup {
+  static Future<void> showButtonHorizontal(
+      {required BuildContext context,
+      required String code,
+      double? width,
+      double? height,
+      Color? backgroundColor,
+      String notice = '',
+      TextStyle? textStyleNotice,
+      TextStyle? textStyleMessage,
+      String message = '',
+      String language = 'Vi',
+      String titleBtnYes = 'Có',
+      Color? colorBtnYes,
+      String titleBtnNo = 'Không',
+      Color? colorBtnNo,
+      Function()? onTapYes,
+      Function()? onTapNo,
+      Widget? customTextYes,
+      Widget? customTextNo}) async {
     await showGeneralDialog(
         context: context,
         barrierColor: Colors.black12.withOpacity(0.3), // Background color
@@ -49,14 +48,16 @@ extension ShowWithAction on GoTrustStatusCodePopup{
                             message: message,
                             language: language,
                             textStyleMessage: textStyleMessage)),
-                    _btnAction(
+                    _btnAction(context,
                         btnTitle: titleBtnYes,
                         btnColor: colorBtnYes,
+                        onTap: onTapYes,
                         customText: customTextYes),
                     const SizedBox(height: 10),
-                    _btnAction(
+                    _btnAction(context,
                         btnTitle: titleBtnNo,
                         btnColor: colorBtnNo,
+                        onTap: onTapNo,
                         customText: customTextNo),
                     const SizedBox(
                       height: 20,
@@ -69,26 +70,25 @@ extension ShowWithAction on GoTrustStatusCodePopup{
         });
   }
 
-  static Future<void> showButtonVertical({
-    required BuildContext context,
-    required String code,
-    double? width,
-    double? height,
-    Color? backgroundColor,
-    String notice = '',
-    TextStyle? textStyleNotice,
-    TextStyle? textStyleMessage,
-    String message = '',
-    String language = 'Vi',
-    String titleBtnYes = 'Có',
-    Color? colorBtnYes,
-    String titleBtnNo = 'Không',
-    Color? colorBtnNo,
-    Function()? onTapYes,
-    Function()? onTapNo,
-    Widget? customTextYes,
-    Widget? customTextNo
-  }) async {
+  static Future<void> showButtonVertical(
+      {required BuildContext context,
+      required String code,
+      double? width,
+      double? height,
+      Color? backgroundColor,
+      String notice = '',
+      TextStyle? textStyleNotice,
+      TextStyle? textStyleMessage,
+      String message = '',
+      String language = 'Vi',
+      String titleBtnYes = 'Có',
+      Color? colorBtnYes,
+      String titleBtnNo = 'Không',
+      Color? colorBtnNo,
+      Function()? onTapYes,
+      Function()? onTapNo,
+      Widget? customTextYes,
+      Widget? customTextNo}) async {
     await showGeneralDialog(
         context: context,
         barrierColor: Colors.black12.withOpacity(0.3), // Background color
@@ -122,16 +122,18 @@ extension ShowWithAction on GoTrustStatusCodePopup{
                       children: [
                         Expanded(
                           flex: 1,
-                          child: _btnAction(
+                          child: _btnAction(context,
                               btnTitle: titleBtnNo,
                               btnColor: colorBtnNo,
+                              onTap: onTapNo,
                               customText: customTextNo),
                         ),
                         const SizedBox(width: 10),
                         Expanded(
                           flex: 1,
-                          child: _btnAction(
+                          child: _btnAction(context,
                               btnTitle: titleBtnYes,
+                              onTap: onTapYes,
                               btnColor: colorBtnYes,
                               customText: customTextYes),
                         ),
@@ -167,8 +169,8 @@ extension ShowWithAction on GoTrustStatusCodePopup{
     return Text(
       message.isEmpty
           ? language == 'Vi'
-          ? (messageVNFromStatus[code] ?? '')
-          : (messageENFromStatus[code] ?? '')
+              ? (messageVNFromStatus[code] ?? '')
+              : (messageENFromStatus[code] ?? '')
           : message,
       style: textStyleMessage ??
           TextStyle(
@@ -178,9 +180,10 @@ extension ShowWithAction on GoTrustStatusCodePopup{
     );
   }
 
-  static Widget _btnAction({Function()? onTap,btnColor, customText, btnTitle}) {
+  static Widget _btnAction(context,
+      {Function()? onTap, btnColor, customText, btnTitle}) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: onTap ?? () => Navigator.of(context).pop(),
       child: Container(
         // width: 260,
         height: 45,
