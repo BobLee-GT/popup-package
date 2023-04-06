@@ -5,6 +5,8 @@ extension ShowNormal on GoTrustStatusCodePopup {
     required BuildContext context,
     required String code,
     String btnTitle = '',
+    String notice = '',
+    TextStyle? textStyleNotice,
     String message = '',
     TextStyle? textStyleMessage,
     String language = 'Vi',
@@ -35,6 +37,14 @@ extension ShowNormal on GoTrustStatusCodePopup {
                     SvgImage.asset(
                         assetName:
                             svgImageFromStatus[code] ?? 'assets/popup/400.svg'),
+                    Text(
+                      notice.isEmpty ? 'Thông báo' : notice,
+                      style: textStyleNotice ?? const TextStyle(
+                          fontSize: 22,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    const SizedBox(height: 10),
                     Expanded(child: Text(
                       message.isEmpty  ? language == 'Vi'
                           ? (messageVNFromStatus[code] ?? '')
@@ -42,7 +52,7 @@ extension ShowNormal on GoTrustStatusCodePopup {
                           : message,
                       style: textStyleMessage ?? TextStyle(
                           fontSize: 20,
-                          color: Colors.grey.withOpacity(0.8),
+                          color: Colors.black.withOpacity(0.8),
                           fontWeight: FontWeight.w400),
                     )),
                     GestureDetector(
