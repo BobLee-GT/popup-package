@@ -6,6 +6,7 @@ extension ShowNormal on GoTrustStatusCodePopup {
     required String code,
     String btnTitle = '',
     String message = '',
+    TextStyle? textStyleMessage,
     String language = 'Vi',
     double? width,
     double? height,
@@ -39,7 +40,7 @@ extension ShowNormal on GoTrustStatusCodePopup {
                           ? (messageVNFromStatus[code] ?? '')
                           : (messageENFromStatus[code] ?? '')
                           : message,
-                      style: TextStyle(
+                      style: textStyleMessage ?? TextStyle(
                           fontSize: 20,
                           color: Colors.grey.withOpacity(0.8),
                           fontWeight: FontWeight.w400),
