@@ -31,7 +31,7 @@ extension ShowFullScreen on GoTrustStatusCodePopup {
                   color: Colors.white,
                   fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 10),
             Text(
               subTitle.isEmpty
                   ? language == 'Vi'
@@ -40,9 +40,10 @@ extension ShowFullScreen on GoTrustStatusCodePopup {
                   : subTitle,
               style: TextStyle(
                   fontSize: 18,
-                  color: Colors.white.withOpacity(0.6),
+                  color: Colors.white.withOpacity(0.8),
                   fontWeight: FontWeight.w400),
             ),
+            const SizedBox(height: 30),
             GestureDetector(
               onTap: () => Navigator.pop(context),
               child: Container(
