@@ -17,6 +17,7 @@ extension ShowNormal on GoTrustStatusCodePopup {
         pageBuilder: (context, animation, secondaryAnimation) {
           return Center(
             child: Container(
+              margin: const EdgeInsets.only(left: 30, right: 30),
               width: width ?? double.infinity,
               height: height ?? 400,
               color: backgroundColor ?? Colors.white,
