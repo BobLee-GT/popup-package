@@ -123,17 +123,17 @@ extension ShowWithAction on GoTrustStatusCodePopup{
                         Expanded(
                           flex: 1,
                           child: _btnAction(
-                              btnTitle: titleBtnYes,
-                              btnColor: colorBtnYes,
-                              customText: customTextYes),
+                              btnTitle: titleBtnNo,
+                              btnColor: colorBtnNo,
+                              customText: customTextNo),
                         ),
                         const SizedBox(width: 10),
                         Expanded(
                           flex: 1,
                           child: _btnAction(
-                              btnTitle: titleBtnNo,
-                              btnColor: colorBtnNo,
-                              customText: customTextNo),
+                              btnTitle: titleBtnYes,
+                              btnColor: colorBtnYes,
+                              customText: customTextYes),
                         ),
                       ],
                     ),
