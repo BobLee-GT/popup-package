@@ -21,9 +21,9 @@ extension ShowFullScreen on GoTrustStatusCodePopup{
       pageBuilder: (_, __, ___) {
         return Column(
           children: <Widget>[
-            const Expanded(
+            Expanded(
               flex: 5,
-              child: SizedBox.expand(child: FlutterLogo()),
+              child: SizedBox.expand(child: SvgImage.asset(assetName: svgImageFromStatus[code] ?? 'assets/popup/400.svg')),
             ),
             Expanded(
               flex: 1,
