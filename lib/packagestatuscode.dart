@@ -158,7 +158,7 @@ class GoTrustStatusCodePopup {
         backgroundColor: backgroundColor);
   }
 
-  static Future<void> showAnimationSuccess({
+  static Future<void> showBottomSheetAnimationSuccess({
     required BuildContext context,
     required String title,
     required String assetAnimationName,
@@ -171,6 +171,29 @@ class GoTrustStatusCodePopup {
         context,
         title: title,
         assetAnimationName: assetAnimationName,
+        customTitleText: customTitleText,
+        padding: padding,
+        backgroundColor: backgroundColor,
+        bottomButton: bottomButton);
+  }
+
+  static Future<void> showBottomSheetSuccess({
+    required BuildContext context,
+    required String title,
+    required String subTitle,
+    required String assetImage,
+    EdgeInsetsGeometry? padding,
+    Color? backgroundColor,
+    Widget? bottomButton,
+    Widget? customTitleText,
+    Widget? customSubTitleText,
+  }) async {
+    await Animation.bottomSheetSuccessful(
+        context,
+        title: title,
+        subTitle: subTitle,
+        assetImage: assetImage,
+        customSubTitleText: customSubTitleText,
         customTitleText: customTitleText,
         padding: padding,
         backgroundColor: backgroundColor,
