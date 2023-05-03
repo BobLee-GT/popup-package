@@ -167,7 +167,7 @@ class GoTrustStatusCodePopup {
     Widget? bottomButton,
     Widget? customTitleText,
   }) async {
-    await Animation.showStatusSuccessful(
+    await Animation.bottomSheetAnimationSuccessful(
         context,
         title: title,
         assetAnimationName: assetAnimationName,

@@ -1,15 +1,15 @@
 part of '../packagestatuscode.dart';
 
-extension Animation on GoTrustStatusCodePopup{
-  static Future<void> showStatusSuccessful(context,
-      {
-        required String title,
-        required String assetAnimationName,
-      EdgeInsetsGeometry? padding,
-      Color? backgroundColor,
-        Widget? bottomButton,
-        Widget? customTitleText,
-      }) async {
+extension Animation on GoTrustStatusCodePopup {
+  static Future<void> bottomSheetAnimationSuccessful(
+    context, {
+    required String title,
+    required String assetAnimationName,
+    EdgeInsetsGeometry? padding,
+    Color? backgroundColor,
+    Widget? bottomButton,
+    Widget? customTitleText,
+  }) async {
     return await showModalBottomSheet(
         context: context,
         isDismissible: false,
@@ -43,7 +43,7 @@ extension Animation on GoTrustStatusCodePopup{
                   spaceVertical(height: 0),
                   const Spacer(),
                   _title(text: title, customTitleText: customTitleText),
-                  if(bottomButton != null) spaceVertical(height: 32),
+                  if (bottomButton != null) spaceVertical(height: 32),
                   bottomButton ?? const SizedBox(),
                   spaceVertical(height: 50),
                 ],
@@ -63,8 +63,7 @@ extension Animation on GoTrustStatusCodePopup{
   }
 
   static Widget _lottie(assetAnimationName) {
-    return Lottie.asset(assetAnimationName,
-        fit: BoxFit.cover, repeat: false);
+    return Lottie.asset(assetAnimationName, fit: BoxFit.cover, repeat: false);
   }
 
   static Widget _title({required String text, Widget? customTitleText}) {
