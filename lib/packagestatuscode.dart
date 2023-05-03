@@ -2,9 +2,11 @@ library packagestatuscode;
 
 import 'package:flutter/material.dart';
 import 'package:gotrust_popup/utils/messages/message.dart';
+import 'package:gotrust_popup/utils/space/space.dart';
 import 'package:gotrust_popup/utils/svg/data_svg.dart';
 import 'package:gotrust_popup/utils/svg/read_svg.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 
 part 'type_show_popup/show_normal.dart';
 
@@ -13,6 +15,8 @@ part 'type_show_popup/show_with_action.dart';
 part 'type_show_popup/show_full_screen.dart';
 
 part 'type_show_popup/show_snack_bar.dart';
+
+part 'show_popup_animation/popup_animation.dart';
 
 /// This package show popup base on status code
 class GoTrustStatusCodePopup {
@@ -154,5 +158,22 @@ class GoTrustStatusCodePopup {
         backgroundColor: backgroundColor);
   }
 
-
+  static Future<void> showAnimationSuccess({
+    required BuildContext context,
+    required String title,
+    Function()? onTap,
+    EdgeInsetsGeometry? padding,
+    Color? backgroundColor,
+    Widget? bottomButton,
+    Widget? customTitleText,
+  }) async {
+    await Animation.showStatusSuccessful(
+        context,
+        title: title,
+        customTitleText: customTitleText,
+        onTap: onTap,
+        padding: padding,
+        backgroundColor: backgroundColor,
+        bottomButton: bottomButton);
+  }
 }

@@ -1,9 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:lottie/lottie.dart';
-import '../utils/space/space.dart';
+part of '../packagestatuscode.dart';
 
-class Animation {
+extension Animation on GoTrustStatusCodePopup{
   static Future<void> showStatusSuccessful(context,
       {
         required String title,
