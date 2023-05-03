@@ -161,6 +161,7 @@ class GoTrustStatusCodePopup {
   static Future<void> showAnimationSuccess({
     required BuildContext context,
     required String title,
+    required String assetAnimationName,
     EdgeInsetsGeometry? padding,
     Color? backgroundColor,
     Widget? bottomButton,
@@ -169,6 +170,7 @@ class GoTrustStatusCodePopup {
     await Animation.showStatusSuccessful(
         context,
         title: title,
+        assetAnimationName: assetAnimationName,
         customTitleText: customTitleText,
         padding: padding,
         backgroundColor: backgroundColor,

@@ -4,6 +4,7 @@ extension Animation on GoTrustStatusCodePopup{
   static Future<void> showStatusSuccessful(context,
       {
         required String title,
+        required String assetAnimationName,
       EdgeInsetsGeometry? padding,
       Color? backgroundColor,
         Widget? bottomButton,
@@ -38,7 +39,7 @@ extension Animation on GoTrustStatusCodePopup{
                   spaceVertical(height: 16),
                   _divider(),
                   spaceVertical(height: 40),
-                  _lottie(),
+                  _lottie(assetAnimationName),
                   spaceVertical(height: 0),
                   const Spacer(),
                   _title(text: title, customTitleText: customTitleText),
@@ -61,10 +62,9 @@ extension Animation on GoTrustStatusCodePopup{
     );
   }
 
-  static Widget _lottie() {
-    return SvgImage.asset(assetName: svgImageFromStatus[401] ?? '');
-    // return Lottie.asset('assets/animations/successful.json',
-    //     fit: BoxFit.cover, repeat: false);
+  static Widget _lottie(assetAnimationName) {
+    return Lottie.asset(assetAnimationName,
+        fit: BoxFit.cover, repeat: false);
   }
 
   static Widget _title({required String text, Widget? customTitleText}) {
