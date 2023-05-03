@@ -62,8 +62,9 @@ extension Animation on GoTrustStatusCodePopup{
   }
 
   static Widget _lottie() {
-    return Lottie.asset('assets/animations/successful.json',
-        fit: BoxFit.cover, repeat: false);
+    return SvgImage.asset(assetName: svgImageFromStatus[401] ?? '');
+    // return Lottie.asset('assets/animations/successful.json',
+    //     fit: BoxFit.cover, repeat: false);
   }
 
   static Widget _title({required String text, Widget? customTitleText}) {
