@@ -29,6 +29,7 @@ flutter:
   assets:
     - assets/popup/
     - assets/animations/
+    - assets/animations/successful.json
   #   - images/a_dot_ham.jpeg
   #
   # For details regarding assets in packages, see

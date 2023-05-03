@@ -4,7 +4,6 @@ extension Animation on GoTrustStatusCodePopup{
   static Future<void> showStatusSuccessful(context,
       {
         required String title,
-        Function()? onTap,
       EdgeInsetsGeometry? padding,
       Color? backgroundColor,
         Widget? bottomButton,
