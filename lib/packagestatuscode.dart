@@ -153,4 +153,6 @@ class GoTrustStatusCodePopup {
         isShowTop: isShowTop,
         backgroundColor: backgroundColor);
   }
+
+
 }
